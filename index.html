@@ -355,7 +355,7 @@
       
         
           
-            <p>在JavaScript的世界中，所有代码都是单线程执行的,由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。有一种回调的写法是先处理逻辑，不关心处理结果如何，然后根据结果是成功还是失败，<br>在将来的某个时候调用success或fail函数。这种“承诺会将来执行”得对象在JavaScript中被称为Promise对象，promise的最大好处是在异步执行的流程中，把执行代码和处理结果的代码清晰的分离了。<br><img src="/images/promise1.png" alt="执行流程图"></p>
+            <p>在JavaScript的世界中，所有代码都是单线程执行的,由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。有一种回调的写法是先处理逻辑，不关心处理结果如何，然后根据结果是成功还是失败，<br>在将来的某个时候调用success或fail函数。这种“承诺会将来执行”得对象在JavaScript中被称为Promise对象，promise的最大好处是在异步执行的流程中，把执行代码和处理结果的代码清晰的分离了。<br><img src="/images/promise1.PNG" alt="执行流程图"></p>
 <h2 id="promise规范："><a href="#promise规范：" class="headerlink" title="promise规范："></a>promise规范：</h2><ul>
 <li>promise对象代表一个异步操作，可能有三种状态，等待（pending），已完成（fulfilled），已拒绝（rejected） </li>
 <li>一个promise状态只能从等待———完成转换或者等待——拒绝转换，不能逆向转换或者完成——拒绝转换 注意：只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态</li>
