@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="前端,学习笔记,Vue,">
+  <meta name="keywords" content="js,前端,学习笔记,">
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="计算属性与methods计算属性是基于它的依赖缓存的。一个计算属性所依赖的数据发生变化时，它才会重新取值。使用计算属性还是methods取决于是否需要缓存，当遍历大数组和做大量计算时，应当使用计算属性。">
-<meta name="keywords" content="前端,学习笔记,Vue">
+<meta name="description" content="在JavaScript的世界中，所有代码都是单线程执行的由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。有一种回调的写法是先处理逻辑，不关心处理结果如何，然后根据结果是成功还是失败，在将来的某个时候调用success或fail函数。这种“承诺会将来执行”得对象在JavaScript中被称为Promise对象，promise的最大好处是在异步执行的流程中，把执">
+<meta name="keywords" content="js,前端,学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学习笔记之vue">
-<meta property="og:url" content="http://yoursite.com/2019/02/18/vue/index.html">
+<meta property="og:title" content="学习笔记之promise">
+<meta property="og:url" content="http://yoursite.com/2019/03/22/promise/index.html">
 <meta property="og:site_name" content="wyx&#39;s blog">
-<meta property="og:description" content="计算属性与methods计算属性是基于它的依赖缓存的。一个计算属性所依赖的数据发生变化时，它才会重新取值。使用计算属性还是methods取决于是否需要缓存，当遍历大数组和做大量计算时，应当使用计算属性。">
+<meta property="og:description" content="在JavaScript的世界中，所有代码都是单线程执行的由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。有一种回调的写法是先处理逻辑，不关心处理结果如何，然后根据结果是成功还是失败，在将来的某个时候调用success或fail函数。这种“承诺会将来执行”得对象在JavaScript中被称为Promise对象，promise的最大好处是在异步执行的流程中，把执">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-22T07:04:06.653Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/22/promise/test/promise1.png">
+<meta property="og:updated_time" content="2019-03-23T06:37:38.699Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学习笔记之vue">
-<meta name="twitter:description" content="计算属性与methods计算属性是基于它的依赖缓存的。一个计算属性所依赖的数据发生变化时，它才会重新取值。使用计算属性还是methods取决于是否需要缓存，当遍历大数组和做大量计算时，应当使用计算属性。">
+<meta name="twitter:title" content="学习笔记之promise">
+<meta name="twitter:description" content="在JavaScript的世界中，所有代码都是单线程执行的由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。有一种回调的写法是先处理逻辑，不关心处理结果如何，然后根据结果是成功还是失败，在将来的某个时候调用success或fail函数。这种“承诺会将来执行”得对象在JavaScript中被称为Promise对象，promise的最大好处是在异步执行的流程中，把执">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/22/promise/test/promise1.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/18/vue/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/22/promise/">
 
 
 
 
 
-  <title>学习笔记之vue | wyx's blog</title>
+  <title>学习笔记之promise | wyx's blog</title>
   
 
 
@@ -263,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/18/vue/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/promise/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wyx">
@@ -280,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">学习笔记之vue</h1>
+          <h1 class="post-title" itemprop="name headline">学习笔记之promise</h1>
         
 
         <div class="post-meta">
@@ -292,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-18T10:57:59+08:00">
-                2019-02-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-22T15:16:00+08:00">
+                2019-03-22
               </time>
             
 
@@ -315,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端Vue框架/" itemprop="url" rel="index">
-                    <span itemprop="name">前端Vue框架</span>
+                  <a href="/categories/前端学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">前端学习笔记</span>
                   </a>
                 </span>
 
@@ -352,7 +354,20 @@
       
 
       
-        <p>计算属性与methods<br>计算属性是基于它的依赖缓存的。一个计算属性所依赖的数据发生变化时，它才会重新取值。<br>使用计算属性还是methods取决于是否需要缓存，当遍历大数组和做大量计算时，应当使用计算属性。</p>
+        <p>在JavaScript的世界中，所有代码都是单线程执行的<br>由于这个“缺陷”，导致JavaScript的所有网络操作，浏览器事件，都必须是异步执行。有一种回调的写法是先处理逻辑，不关心处理结果如何，然后根据结果是成功还是失败，<br>在将来的某个时候调用success或fail函数。这种“承诺会将来执行”得对象在JavaScript中被称为Promise对象，promise的最大好处是在异步执行的流程中，把执行代码和<br>处理结果的代码清晰的分离了。<br><img src="/2019/03/22/promise/test/promise1.png" alt="示意图"></p>
+<p>##promise规范：</p>
+<ul>
+<li>promise对象代表一个异步操作，可能有三种状态，等待（pending），已完成（fulfilled），已拒绝（rejected） </li>
+<li>一个promise状态只能从等待———完成转换或者等待——拒绝转换，不能逆向转换或者完成——拒绝转换 注意：只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态</li>
+<li>promise是一个对象，有且必须实现then方法，而且then必须返回一个promise，同一个promise的then可以调用多次，且回调的执行顺序和他们被定义时的顺序一致</li>
+<li>then方法接收两个参数，这两个参数都是函数，第一个参数是成功时的回调，另一个是失败时的回调（分别在等待——成功、等待——失败时调用）。同时，then可以接收另一个promise传入<br>##使用promise优势：<br><strong>1. 解决回调地狱（Callback Hell）问题</strong><br>有时我们要进行一些相互间有依赖的异步操作，比如有很多请求，后一个请求需要上一个请求的返回结果。一般只能通过callback层层嵌套，单嵌套层数太多就会有callback hell问题，<br>代码的可读性和可维护性都很差<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">firstRequest(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//处理data</span></span><br><span class="line">	secondRequest(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		<span class="comment">//处理data</span></span><br><span class="line">		thirdRequest(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">			...</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>若使用promise来串行执行这样的异步任务，代码就会更扁平与可读，then返回了一个promise，我们可以将then的调用不断地串联起来。其中then返回的promise装载了由调用返回的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">firstRequest().then(function(data)&#123;</span><br><span class="line">	//处理data</span><br><span class="line">	return secondRequest();</span><br><span class="line">	&#125;)</span><br><span class="line">	.then(function(data)&#123;</span><br><span class="line">	//处理data</span><br><span class="line">	return thirdRequest();</span><br><span class="line">	&#125;)</span><br><span class="line">	.then(function(data)&#123;</span><br><span class="line">	//处理data</span><br><span class="line">	...</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>简单的示意如下，其中，job1、job2、job3都是Promise对象<br><code>job1.then(job2).then(job3).catch(handleError)</code><br><strong>2.更好的错误捕获</strong><br>多重嵌套callback除了会造成上面讲到的问题，还可能会造成无法捕获异常或异常捕获不可控</p>
+<p> <strong>3.promise可以并行执行异步任务</strong><br>promise的all方法提供了并行执行异步操作的能力，并且在所有异步操作执行完成后才执行回调<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> var p1 = new Promise(function (resolve, reject) &#123;</span><br><span class="line">    setTimeout(resolve, 500, &apos;P1&apos;);</span><br><span class="line">&#125;);</span><br><span class="line">var p2 = new Promise(function (resolve, reject) &#123;</span><br><span class="line">    setTimeout(resolve, 600, &apos;P2&apos;);</span><br><span class="line">&#125;);</span><br><span class="line">// 同时执行p1和p2，并在它们都完成后执行then:</span><br><span class="line">Promise.all([p1, p2]).then(function (results) &#123;</span><br><span class="line">    console.log(results); // 获得一个Array: [&apos;P1&apos;, &apos;P2&apos;]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p> 有些时候，多个异步任务是为了容错，只需要获得多个异步操作中先返回的结果即可。这种情况下，用Promise.race()实现<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> Promise.race([p1, p2]).then(function (result) &#123;</span><br><span class="line">    console.log(result); // &apos;P1&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>若p1执行较快，Promise的then()将获得结果’P1’。p2仍在继续执行，但执行结果将被丢弃<br>race 使用场景很多。比如我们可以用 race 给某个异步请求设置超时时间，并且在超时后执行相应的操作</p>
 
       
     </div>
@@ -370,11 +385,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/js/" rel="tag"># js</a>
+          
             <a href="/tags/前端/" rel="tag"># 前端</a>
           
             <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
-          
-            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -387,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/15/algorithm1/" rel="next" title="algorithm1">
-                <i class="fa fa-chevron-left"></i> algorithm1
+              <a href="/2019/03/15/markdown/" rel="next" title="markdown">
+                <i class="fa fa-chevron-left"></i> markdown
               </a>
             
           </div>
@@ -397,8 +412,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/01/TryCatch/" rel="prev" title="TryCatch">
-                TryCatch <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/23/test/" rel="prev" title="test">
+                test <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
